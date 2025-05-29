@@ -1,0 +1,70 @@
+# === Python / FastAPI ===
+
+# Entornos virtuales
+venv/
+ENV/
+env/
+.venv/
+
+# Archivos de Python compilados
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Archivos de configuración de VS Code
+.vscode/
+!.vscode/extensions.json  # permitimos compartir configuraciones comunes
+
+# Archivos de base de datos locales
+*.db
+*.sqlite3
+
+# Pruebas y cobertura
+htmlcov/
+.tox/
+.coverage
+.cache
+.pytest_cache/
+
+# Logs
+*.log
+
+# Variables de entorno
+.env
+.env.*
+
+# Archivos de dependencias y builds
+pip-wheel-metadata/
+dist/
+build/
+*.egg-info/
+
+
+# === React / Vite Frontend ===
+
+# Logs
+logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependencias
+node_modules/
+
+# Builds
+dist/
+dist-ssr/
+*.local
+
+# Archivos del sistema
+.DS_Store
+
+# Archivos de IDEs/editors
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

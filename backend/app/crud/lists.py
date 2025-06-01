@@ -29,3 +29,6 @@ def delete_list(db: Session, list_id: int):
 
 def get_all_lists(db: Session):
     return db.query(models.TodoList).all()
+
+def get_list_by_name(db: Session, name: str):
+    return db.query(models.TodoList).filter(models.TodoList.name.ilike(name)).first()

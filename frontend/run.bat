@@ -1,6 +1,6 @@
 @echo off
 echo ----------------------------------
-echo [RUN] Verificando directorio de la aplicación...
+echo [RUN] Verificando directorio de la aplicacion...
 cd app
 REM Verifica si las dependencias están instaladas
 if not exist node_modules (

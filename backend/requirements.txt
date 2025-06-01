@@ -5,3 +5,4 @@ pydantic
 sqlite-utils
 pytest
 httpx
+fastapi_mcp

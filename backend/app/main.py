@@ -1,17 +1,16 @@
 from fastapi import FastAPI
 from .database import Base, engine
 from .routers import lists, items
-# Configuración de CORS para permitir solicitudes desde el frontend
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi_mcp import FastApiMCP
 
+import logging
+logging.basicConfig(level=logging.DEBUG)
 
-# Crear las tablas en la base de datos si no existen
 Base.metadata.create_all(bind=engine)
 
-# Instancia principal de la aplicación FastAPI
-app = FastAPI(title="TodoList + MCP (FastAPI)")
+app = FastAPI(title="TodoList + MCP (FastAPI)", debug=True)
 
-# Incluir routers para las rutas de listas e ítems
 app.include_router(lists.router)
 app.include_router(items.router)
 
@@ -19,8 +18,6 @@ app.include_router(items.router)
 def read_root():
     return {"message": "Welcome to the TodoList API with MCP (FastAPI)!"}
 
-
-# Permitir acceso desde frontend
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173"],
@@ -32,3 +29,16 @@ app.add_middleware(
 @app.get("/api/hello")
 def read_root():
     return {"message": "Hello from FastAPI"}
+
+# Add MCP server to the FastAPI app
+mcp = FastApiMCP(
+    app,
+    name="Item API MCP",
+    description="MCP server for the Item API",
+    describe_full_response_schema=True,
+    describe_all_responses=True,
+)
+
+mcp.mount()
+
+mcp.setup_server()

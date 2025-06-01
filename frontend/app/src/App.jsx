@@ -1,10 +1,6 @@
-import { useState } from 'react';
 import ListManager from './components/ListManager';
-import TodoList from './components/TodoList';
 
 function App() {
-  const [selectedListId, setSelectedListId] = useState(null);
-
   return (
     <div>
       <header className="App-header">
@@ -13,7 +9,7 @@ function App() {
       <h1>Gestor de Listas y Tareas</h1>
       <ListManager />
       <footer className="App-footer">
-        <p>&copy; 2025 Franco vannucci. Todos los derechos reservados.</p>
+        <p>Copyright &copy; 2025 Franco Vannucci Fernandez, All Rights Reserved.</p>
       </footer>
     </div>
   );

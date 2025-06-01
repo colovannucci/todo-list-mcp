@@ -16,7 +16,7 @@ function TodoList({ listId }) {
 
   const fetchItems = () => {
     getItems(listId)
-      .then(res => setItems(res.data))
+      .then(res => {console.log(res);setItems(res.data)})
       .catch(console.error);
   };
 
@@ -61,7 +61,7 @@ function TodoList({ listId }) {
 
   return (
     <div>
-      <h2>Tareas de la Lista {listId} {listName}</h2>
+      <h2>Tareas de la Lista {listId}</h2>
       {items.length === 0 ? (
         <p>📭 Esta lista no tiene tareas.</p>
       ) : (
